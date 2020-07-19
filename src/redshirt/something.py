@@ -15,9 +15,9 @@ def get_uuid():
 
 
 def main():
-    print(func_a(0))
-    print(func_b('narcissus'))
-    print(get_uuid())
+    print('1:', func_a(0))
+    print('2:', func_b('narcissus'))
+    print('3:', get_uuid())
 
 
 if __name__ == '__main__':
