@@ -1,0 +1,1 @@
+This project is just a personal playground for getting to know GH actions and how to set up a CI/CD pipeline with it for a generic Python Project
