@@ -15,7 +15,7 @@ def get_uuid():
 
 
 def main():
-    print('1:', func_a(0))
+    print('1: {}'.format(func_a(0)))
     print('2:', func_b('narcissus'))
     print('3:', get_uuid())
 
