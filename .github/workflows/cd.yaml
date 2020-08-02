@@ -45,7 +45,7 @@ jobs:
     - name: Zip the package
       run: |
         cd src/redshirt/dist
-        zip -r something.zip something/
+        7z a something.zip .
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1
