@@ -2,14 +2,14 @@ name: CD
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ develop, master ]
 
 jobs:
   build:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: 3.6
+        python-version: [3.6]
     
     steps:
     - uses: actions/checkout@v2
