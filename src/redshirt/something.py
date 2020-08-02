@@ -2,7 +2,7 @@ import requests as req
 
 
 def func_a(arg):
-    return arg + 0
+    return arg + 1
 
 
 def func_b(name: str) -> str:
