@@ -42,5 +42,13 @@ jobs:
         cd src/redshirt
         pyinstaller something.py
     
-    
+    - name: Zip the package
+      run: |
+        cd dist
+        zip -r something.zip something/
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: something.zip
   
