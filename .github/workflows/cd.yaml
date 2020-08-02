@@ -44,11 +44,12 @@ jobs:
     
     - name: Zip the package
       run: |
-        cd dist
+        cd src/redshirt/dist
         zip -r something.zip something/
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
         name: something.zip
+        path: src/redshirt/dist
   
