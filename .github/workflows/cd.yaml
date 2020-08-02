@@ -18,10 +18,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-    
+        
     - name: Cache pip
       uses: actions/cache@v2
       with: 
@@ -42,10 +39,10 @@ jobs:
         cd src/redshirt
         pyinstaller something.py
     
-    - name: Zip the package
-      run: |
-        cd src/redshirt/dist
-        7z a something.zip .
+#     - name: Zip the package
+#       run: |
+#         cd src/redshirt/dist
+#         7z a something.zip .
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1
