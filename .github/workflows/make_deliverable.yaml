@@ -40,7 +40,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       with:
         upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: src/redshirt/dist/something.zip
-        asset_name: something-windows.zip
-        asset_content_type: application/zip
+        asset_path: src/redshirt/dist/something.exe
+        asset_name: something-windows.exe
+#         asset_content_type: application/zip
         
