@@ -2,7 +2,11 @@ name: Make the deliverable
 
 on:
   release
-    
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+
 jobs:
   deliverable:
     runs-on: windows-latest
