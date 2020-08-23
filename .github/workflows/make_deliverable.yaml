@@ -11,6 +11,9 @@ jobs:
     runs-on: windows-latest
     
     steps:
+    - name: debug action
+      uses: hmarr/debug-action@v1.0.0
+      
     - name: Check release type
       run: |
         echo event: ${{ github.event }}
