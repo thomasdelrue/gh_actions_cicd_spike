@@ -11,12 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: debug action
-      uses: hmarr/debug-action@v1.0.0
       
     - name: Check release type
       run: |
-        echo event: ${{ github.event }}
+        echo event: ${{ toJson(github.event) }})
+        
+    - name: check event
+      run: |
+        throw "This halts."
+        
+    - name: conditional step...
+      if: ${{ success() }}
+      run: |
+        echo This gets to run.
+      
+        
           
 #     - name: Checkout source code
 #       uses: actions/checkout@v2
