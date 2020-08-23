@@ -14,7 +14,9 @@ jobs:
       
     - name: Check release type
       run: |
-        echo event: ${{ toJson(github.event) }})
+        cat << EOF
+        ${{ toJson(github.event) }}
+        EOF
         
     - name: check event
       run: |
