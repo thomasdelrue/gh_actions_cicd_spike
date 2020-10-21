@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: show tag
+        run: echo current ref, ${{ github.ref }}
+
       - name: Upload blue artifact
         uses: actions/upload-artifact@v1
         with:
