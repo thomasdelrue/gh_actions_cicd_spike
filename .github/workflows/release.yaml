@@ -1,0 +1,26 @@
+name: Make a release
+
+on:
+  release:
+    types: [published, created, edited]
+    
+
+jobs:
+  blue:
+    runs-on: ubuntu
+    steps:
+    - name: Upload blue artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: blue
+        path: blue_artifact
+        
+  red:
+    runs-on: ubuntu
+    steps:
+    - name: Upload red artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: red
+        path: red_artifact        
+        
