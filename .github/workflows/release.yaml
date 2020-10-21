@@ -13,11 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: show tag
+      - name: show info
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo current ref, ${{ github.ref }}
-          echo event: ${{ github.event }}
-          echo event json: ${{ toJson(github) }}
+          echo "$GITHUB_CONTEXT"
 
       - name: Upload blue artifact
         uses: actions/upload-artifact@v1
