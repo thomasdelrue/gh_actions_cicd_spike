@@ -11,18 +11,20 @@ jobs:
   blue:
     runs-on: ubuntu-latest
     steps:
-    - name: Upload blue artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: blue
-        path: blue_artifact
+      - uses: actions/checkout@v2
+      - name: Upload blue artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: blue
+          path: blue_artifact
         
   red:
     runs-on: ubuntu-latest
     steps:
-    - name: Upload red artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: red
-        path: red_artifact        
+      - uses: actions/checkout@v2
+      - name: Upload red artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: red
+          path: red_artifact        
         
