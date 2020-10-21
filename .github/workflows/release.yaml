@@ -17,6 +17,7 @@ jobs:
         run: |
           echo current ref, ${{ github.ref }}
           echo event: ${{ github.event }}
+          echo event json: ${{ toJson(github.event) }}
 
       - name: Upload blue artifact
         uses: actions/upload-artifact@v1
