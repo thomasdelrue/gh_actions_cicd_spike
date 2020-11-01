@@ -18,20 +18,39 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+          
+      - name: logic deciding build
+        id: decision
+        run: |
+          echo ${{ github.ref }}
+          tag=${{ github.ref }}
+          marker=${tag##*-}
+          echo $marker
+          if [[ $marker -eq "red ]]
+          then
+            echo "::set-output name=build::red"
+          elif [[ $marker -eq "blue" ]]
+          then
+            echo "::set-output name=build::blue"
+          fi
+          
+      - name: logic on previous output
+        run: |
+          echo "selected build path: ${{ steps.decision.outputs.build }}"
 
-      - name: Upload blue artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: blue
-          path: blue_artifact
+#       - name: Upload blue artifact
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: blue
+#           path: blue_artifact
         
-  red:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Upload red artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: red
-          path: red_artifact        
+#   red:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Upload red artifact
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: red
+#           path: red_artifact        
         
