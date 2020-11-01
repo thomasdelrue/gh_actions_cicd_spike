@@ -8,8 +8,10 @@ on:
     
 
 jobs:
-  blue:
+  decision:
     runs-on: ubuntu-latest
+    outputs:
+      build: ${{ steps.decision.outputs.build }}
     steps:
       - uses: actions/checkout@v2
 
@@ -44,13 +46,27 @@ jobs:
 #           name: blue
 #           path: blue_artifact
         
-#   red:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Upload red artifact
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: red
-#           path: red_artifact        
+  red:
+    needs: decision    
+    if: ${{ needs.decision.outputs.build == 'red' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upload red artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: red
+          path: red_artifact        
+          
+  blue:
+    needs: decision    
+    if: ${{ needs.decision.outputs.build == 'blue' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upload blue artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: blue
+          path: blue_artifact  
         
