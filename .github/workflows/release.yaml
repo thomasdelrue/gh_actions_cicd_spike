@@ -28,11 +28,13 @@ jobs:
           tag=${{ github.ref }}
           marker=${tag##*-}
           echo $marker
-          if [[ $marker -eq "red" ]]
+          if [[ $marker -eq "red" ]];
           then
+            echo red pill
             echo "::set-output name=build::red"
-          elif [[ $marker -eq "blue" ]]
+          elif [[ $marker -eq "blue" ]];
           then
+            echo blue pill
             echo "::set-output name=build::blue"
           fi
           
