@@ -55,10 +55,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Upload red artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-release-asset@v1
         with:
-          name: red
-          path: red_artifact        
+          upload_url: ${{ github.event.release.assets_url }} 
+          asset_name: red
+          assert_path: red_artifact        
+          asset_content_type: application/zip
           
   blue:
     needs: decision    
