@@ -59,7 +59,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.assets_url }} 
           asset_name: red
-          assert_path: red_artifact        
+          asset_path: red_artifact        
           asset_content_type: application/zip
           
   blue:
