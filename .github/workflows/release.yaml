@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: zip it
-        run: zip red_artifact
+        run: zip red_artifact.zip red_artifact
       - name: Upload red artifact
         uses: actions/upload-release-asset@v1
         env:
