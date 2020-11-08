@@ -59,7 +59,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.assets_url }}?name=red_artifact 
+          upload_url: ${{ github.event.release.upload_url }}
           asset_name: red_artifact
           asset_path: ./red_artifact        
           asset_content_type: application/text
